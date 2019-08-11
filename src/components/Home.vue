@@ -82,44 +82,19 @@
         </a>
       </li>
     </ul>
-     <button class="goTop" v-if="isVisible" @click="backToTop">
-        <i class="fa fa-angle-up" aria-hidden="true"></i>
-    </button>
+     <go-top
+     bg-color="#90b42e"
+     :radius="5"
+     :has-outline="false"
+     />
   </div>
 </template>
 
 <script>
-import $ from 'jquery'
+import GoTop from '@inotom/vue-go-top';
 export default {
-    template: '#backtotop',
-  data: function() {
-    return {
-      isVisible: false
-    };
-  },
-  methods: {
-    initToTopButton: function() {
-      $(document).bind('scroll', function() {
-        var backToTopButton = $('.goTop');
-        if ($(document).scrollTop() > 350) {
-          backToTopButton.addClass('isVisible');
-          this.isVisible = true;
-        } else {
-          backToTopButton.removeClass('isVisible');
-          this.isVisible = false;
-        }
-      }.bind(this));
-    },
-    backToTop: function() {
-      $('html,body').stop().animate({
-        scrollTop: 0
-      }, 'slow', 'swing');
-    }
-  },
-  mounted: function() {
-    this.$nextTick(function() {
-      this.initToTopButton();
-    });
+  components: {
+    GoTop
   }
 }
 </script>
