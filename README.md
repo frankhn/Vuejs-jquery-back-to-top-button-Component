@@ -1,6 +1,6 @@
 # back-to-top-functionality
 
-> A Vue.js project
+> A Vue.js Back To top button
 
 ## Build Setup
 
